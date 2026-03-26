@@ -17,14 +17,28 @@ function fillPreferencesWindow(window) {
     const row = new Adw.ComboRow({
         title: 'Grid Size',
         subtitle: 'Select the number of slots for the tiling grid.',
-        model: Gtk.StringList.new(['2 Slots', '4 Slots'])
+        model: Gtk.StringList.new(['1 Slot', '2 Slots', '4 Slots'])
     });
 
-    // Map GSettings (2 or 4) to UI index (0 or 1)
-    row.selected = settings.get_int('grid-size') === 4 ? 1 : 0;
+    // Map GSettings (1, 2 or 4) to UI index (0, 1 or 2)
+    const currentGridSize = settings.get_int('grid-size');
+    if (currentGridSize === 1) {
+        row.selected = 0;
+    } else if (currentGridSize === 4) {
+        row.selected = 2;
+    } else {
+        row.selected = 1;
+    }
 
     row.connect('notify::selected', () => {
-        const newValue = row.selected === 1 ? 4 : 2;
+        let newValue;
+        if (row.selected === 0) {
+            newValue = 1;
+        } else if (row.selected === 2) {
+            newValue = 4;
+        } else {
+            newValue = 2;
+        }
         settings.set_int('grid-size', newValue);
     });
 

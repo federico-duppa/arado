@@ -3,7 +3,7 @@
   <schema id="org.gnome.shell.extensions.arado" path="/org/gnome/shell/extensions/arado/">
     <key name="grid-size" type="i">
       <default>2</default>
-      <summary>The number of tiling slots (2 or 4).</summary>
+      <summary>The number of tiling slots (1, 2 or 4).</summary>
     </key>
     <key name="move-left" type="as">
       <default>["&lt;Super&gt;Left"]</default>

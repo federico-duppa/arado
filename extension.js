@@ -162,7 +162,9 @@ class TilingManager {
         let currentSlot = this._windowSlots.get(window) || 0;
         let newSlot = currentSlot;
 
-        if (this._gridSize === 2) {
+        if (this._gridSize === 1) {
+            newSlot = 0;
+        } else if (this._gridSize === 2) {
             if (direction === 'left') newSlot = 0;
             if (direction === 'right') newSlot = 1;
         } else if (this._gridSize === 4) {
@@ -205,8 +207,8 @@ class TilingManager {
         let gap = 2;
         let margin = 2;
 
-        let cols = 2;
-        let rows = (this._gridSize === 2) ? 1 : 2;
+        let cols = (this._gridSize === 1) ? 1 : 2;
+        let rows = (this._gridSize === 4) ? 2 : 1;
 
         let slotWidth = Math.floor((workArea.width - (margin * 2) - (gap * (cols - 1))) / cols);
         let slotHeight = Math.floor((workArea.height - (margin * 2) - (gap * (rows - 1))) / rows);
@@ -219,13 +221,13 @@ class TilingManager {
 
             // If window has no assigned slot, use its index in the window list (modulo gridSize)
             let slot = this._windowSlots.get(window);
-            if (slot === undefined) {
+            if (slot === undefined || slot >= this._gridSize) {
                 slot = index % this._gridSize;
                 this._windowSlots.set(window, slot);
             }
 
-            let col = slot % 2;
-            let row = Math.floor(slot / 2);
+            let col = slot % cols;
+            let row = Math.floor(slot / cols);
 
             let x = Math.floor(workArea.x + margin + (col * (slotWidth + gap)));
             let y = Math.floor(workArea.y + margin + (row * (slotHeight + gap)));

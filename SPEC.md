@@ -1,7 +1,7 @@
 # Specification: Arado GNOME Extension
 
 ## Objective
-Develop "Arado", a tiling window manager extension for GNOME 42.9 (Ubuntu 22.04 LTS context). The extension provides a simple, configurable grid-based tiling system (2 or 4 slots) with keyboard-driven window movement.
+Develop "Arado", a tiling window manager extension for GNOME 42.9 (Ubuntu 22.04 LTS context). The extension provides a simple, configurable grid-based tiling system (1, 2 or 4 slots) with keyboard-driven window movement.
 
 ## Target Environment
 - **GNOME Version:** 42.9
@@ -12,11 +12,12 @@ Develop "Arado", a tiling window manager extension for GNOME 42.9 (Ubuntu 22.04 
 
 ### 1. Tiling Engine
 - **Grid Modes:**
+    - **1-Slot:** Occupies the entire monitor area (minus top bar and margins). Essentially, all windows in this mode are "maximized" within the grid.
     - **2-Slot:** Splits the monitor into two equal vertical halves (left and right). Each window occupies 50% width and 100% height (minus the top bar and margins).
     - **4-Slot:** Splits the monitor into a 2x2 grid. Each window occupies 50% width and 50% height (minus the top bar and margins).
 - **Layout Logic:**
     - Windows are assigned to the "next available slot" in a left-to-right, top-to-bottom order.
-    - **Overflow Handling:** If there are more windows than slots (e.g., 3 windows in a 2-slot grid), the engine will wrap around. The 3rd window will be placed in the 1st slot (on top of the 1st window), the 4th in the 2nd slot, and so on. Users can rely on standard OS task switching (e.g., Alt-Tab) to bring stacked windows to the foreground.
+    - **Overflow Handling:** If there are more windows than slots (e.g., 2 windows in a 1-slot grid, or 3 windows in a 2-slot grid), the engine will wrap around. The extra windows will be placed in the first available slot (on top of existing windows). Users can rely on standard OS task switching (e.g., Alt-Tab) to bring stacked windows to the foreground.
     - **Margins & Gaps:** The engine applies a fixed, non-configurable `2px` gap between windows and a `2px` margin around the edges of the screen.
     - The engine must respect the `struts` (e.g., GNOME top bar) to avoid overlapping system UI.
 - **Dynamic & Automatic Updates:** Tiling is fully automatic. The layout recalculates immediately when windows are opened, closed, or moved.
@@ -26,7 +27,7 @@ Develop "Arado", a tiling window manager extension for GNOME 42.9 (Ubuntu 22.04 
 ### 2. Configuration UI (Preferences)
 - A simple GTK4-based preferences window (accessible via `gnome-extensions-app`).
 - **Options:**
-    - **Grid Type:** Radio buttons or a dropdown to select between "2-Slot (Vertical)" and "4-Slot (2x2)".
+    - **Grid Type:** Radio buttons or a dropdown to select between "1-Slot", "2-Slot (Vertical)" and "4-Slot (2x2)".
 
 ### 3. Keyboard Shortcuts
 - **Window Movement:**
