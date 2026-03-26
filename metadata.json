@@ -3,5 +3,5 @@
   "name": "Arado",
   "description": "A simple 1, 2 or 4-slot tiling extension for GNOME.",
   "shell-version": ["42"],
-  "url": ""
+  "url": "https://github.com/federico-duppa/arado"
 }

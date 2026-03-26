@@ -4,17 +4,17 @@ const ExtensionUtils = imports.misc.extensionUtils;
 
 class TilingManager {
     constructor() {
-        this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.arado');
+        this._settings = null;
         this._windowSignals = new Map();
         this._shellSignals = [];
         this._isTiling = false;
         this._idleId = 0;
-
-        // Slot mapping per window (stored by window reference)
-        this._windowSlots = new WeakMap();
+        this._windowSlots = null;
     }
 
     enable() {
+        this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.arado');
+        this._windowSlots = new WeakMap();
         this._gridSize = this._settings.get_int('grid-size');
 
         this._shellSignals.push({
@@ -72,6 +72,9 @@ class TilingManager {
         this._windowSignals.clear();
 
         this._removeKeybindings();
+
+        this._settings = null;
+        this._windowSlots = null;
     }
 
     scheduleTileAll() {
