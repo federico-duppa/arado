@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.arado" path="/org/gnome/shell/extensions/arado/">
+    <key name="grid-size" type="i">
+      <default>2</default>
+      <summary>The number of tiling slots (2 or 4).</summary>
+    </key>
+    <key name="move-left" type="as">
+      <default>["&lt;Super&gt;Left"]</default>
+      <summary>Move window to the left slot.</summary>
+    </key>
+    <key name="move-right" type="as">
+      <default>["&lt;Super&gt;Right"]</default>
+      <summary>Move window to the right slot.</summary>
+    </key>
+    <key name="move-up" type="as">
+      <default>["&lt;Super&gt;Up"]</default>
+      <summary>Move window to the top slot.</summary>
+    </key>
+    <key name="move-down" type="as">
+      <default>["&lt;Super&gt;Down"]</default>
+      <summary>Move window to the bottom slot.</summary>
+    </key>
+  </schema>
+</schemalist>

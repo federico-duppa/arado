@@ -1,0 +1,17 @@
+# GNOME Shell extension artifacts
+schemas/gschemas.compiled
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build/temp directories
+_build/
+build/
+dist/
