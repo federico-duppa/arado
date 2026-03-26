@@ -84,7 +84,10 @@ class TilingManager {
     }
 
     _setupWindow(window, doRetile = true) {
-        if (this._shouldIgnore(window)) return;
+        if (!window || !window.get_window_type || !window.get_workspace) return;
+        
+        let type = window.get_window_type();
+        if (type !== Meta.WindowType.NORMAL) return;
 
         if (this._windowSignals.has(window)) return;
 
@@ -97,6 +100,15 @@ class TilingManager {
                 if (!this._isTiling) this.scheduleTileAll();
             }),
             window.connect('position-changed', () => {
+                 if (!this._isTiling) this.scheduleTileAll();
+            }),
+            window.connect('notify::maximized-horizontally', () => {
+                 if (!this._isTiling) this.scheduleTileAll();
+            }),
+            window.connect('notify::maximized-vertically', () => {
+                 if (!this._isTiling) this.scheduleTileAll();
+            }),
+            window.connect('notify::minimized', () => {
                  if (!this._isTiling) this.scheduleTileAll();
             })
         ];
@@ -111,9 +123,12 @@ class TilingManager {
         let type = window.get_window_type();
         if (type !== Meta.WindowType.NORMAL) return true;
 
-        return window.minimized ||
-               window.is_attached_dialog() ||
-               !window.allows_resize();
+        if (window.minimized || window.is_attached_dialog()) return true;
+
+        // If it's maximized, we want to tile it (unmaximize it first)
+        if (window.get_maximized() !== Meta.MaximizeFlags.NONE) return false;
+
+        return !window.allows_resize();
     }
 
     _setupKeybindings() {
