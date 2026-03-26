@@ -146,6 +146,9 @@ class TilingManager {
         Main.wm.addKeybinding('move-down', this._settings, Meta.KeyBindingFlags.NONE, modes, () => {
             this._moveFocusedWindow('down');
         });
+        Main.wm.addKeybinding('cycle-grid', this._settings, Meta.KeyBindingFlags.NONE, modes, () => {
+            this._cycleGridSize();
+        });
     }
 
     _removeKeybindings() {
@@ -153,6 +156,16 @@ class TilingManager {
         Main.wm.removeKeybinding('move-right');
         Main.wm.removeKeybinding('move-up');
         Main.wm.removeKeybinding('move-down');
+        Main.wm.removeKeybinding('cycle-grid');
+    }
+
+    _cycleGridSize() {
+        let currentSize = this._settings.get_int('grid-size');
+        let newSize;
+        if (currentSize === 1) newSize = 2;
+        else if (currentSize === 2) newSize = 4;
+        else newSize = 1;
+        this._settings.set_int('grid-size', newSize);
     }
 
     _moveFocusedWindow(direction) {

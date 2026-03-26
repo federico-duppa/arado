@@ -21,5 +21,9 @@
       <default>["&lt;Super&gt;Down"]</default>
       <summary>Move window to the bottom slot.</summary>
     </key>
+    <key name="cycle-grid" type="as">
+      <default>["&lt;Super&gt;g"]</default>
+      <summary>Cycle through grid sizes (1, 2, 4).</summary>
+    </key>
   </schema>
 </schemalist>

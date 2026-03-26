@@ -30,6 +30,8 @@ Develop "Arado", a tiling window manager extension for GNOME 42.9 (Ubuntu 22.04 
     - **Grid Type:** Radio buttons or a dropdown to select between "1-Slot", "2-Slot (Vertical)" and "4-Slot (2x2)".
 
 ### 3. Keyboard Shortcuts
+- **Grid Configuration:**
+    - `SUPER + G`: Cycle through grid sizes (1-slot -> 2-slot -> 4-slot -> 1-slot...).
 - **Window Movement:**
     - `SUPER + Left`: Move the focused window to the slot on the left.
     - `SUPER + Right`: Move the focused window to the slot on the right.
