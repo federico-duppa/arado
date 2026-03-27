@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Arado GNOME Extension Installer
+# Arado v1 GNOME Extension Installer
 # This script installs the Arado extension to the local user directory.
 
 UUID="arado@federico.duppa"
 INSTALL_BASE="$HOME/.local/share/gnome-shell/extensions"
 INSTALL_PATH="$INSTALL_BASE/$UUID"
 
-echo "Installing Arado extension ($UUID)..."
+echo "Installing Arado v1 extension ($UUID)..."
 
 # Create destination directory
 mkdir -p "$INSTALL_PATH"
