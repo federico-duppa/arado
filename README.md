@@ -1,4 +1,4 @@
-# Arado v1
+# Arado v2
 
 **A minimal, keyboard-driven tiling extension for GNOME.**
 

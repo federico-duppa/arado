@@ -1,4 +1,4 @@
-# Specification: Arado GNOME Extension v1
+# Specification: Arado GNOME Extension v2
 
 ## Objective
 Develop "Arado", a tiling window manager extension for GNOME 42.9 (Ubuntu 22.04 LTS context). The extension provides a simple, configurable grid-based tiling system (1, 2 or 4 slots) with keyboard-driven window movement.

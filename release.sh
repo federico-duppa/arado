@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# Arado v1 Release Script
+# Arado v2 Release Script
 # This script packages the extension for submission to extensions.gnome.org
 
 UUID="arado@federico.duppa"
-VERSION="v1"
+VERSION="v$(jq -r '.version' metadata.json)"
 ZIP_NAME="${UUID}.${VERSION}.zip"
+
+# Check if README.md is in sync
+README_VERSION=$(grep -oE "Arado v[0-9]+" README.md | head -n 1 | sed 's/Arado //')
+if [ "$README_VERSION" != "$VERSION" ]; then
+    echo "Warning: README.md version ($README_VERSION) is not in sync with metadata.json ($VERSION)."
+fi
 
 echo "Packaging Arado ${VERSION}..."
 
