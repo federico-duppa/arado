@@ -2,7 +2,7 @@
   "uuid": "arado@federico.duppa",
   "name": "Arado",
   "description": "A simple 1, 2 or 4-slot tiling extension for GNOME.",
-  "shell-version": ["42"],
+  "shell-version": ["42", "43", "44", "45", "46"],
   "url": "https://github.com/federico-duppa/arado",
   "version": 1
 }

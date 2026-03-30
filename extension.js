@@ -1,9 +1,13 @@
-const { Gio, GLib, GObject, Meta, Shell, St } = imports.gi;
-const Main = imports.ui.main;
-const ExtensionUtils = imports.misc.extensionUtils;
+import GLib from 'gi://GLib';
+import Meta from 'gi://Meta';
+import Shell from 'gi://Shell';
+
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 class TilingManager {
-    constructor() {
+    constructor(extension) {
+        this._extension = extension;
         this._settings = null;
         this._windowSignals = new Map();
         this._shellSignals = [];
@@ -13,7 +17,7 @@ class TilingManager {
     }
 
     enable() {
-        this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.arado');
+        this._settings = this._extension.getSettings();
         this._windowSlots = new WeakMap();
         this._gridSize = this._settings.get_int('grid-size');
 
@@ -257,6 +261,14 @@ class TilingManager {
     }
 }
 
-function init() {
-    return new TilingManager();
+export default class AradoExtension extends Extension {
+    enable() {
+        this._manager = new TilingManager(this);
+        this._manager.enable();
+    }
+
+    disable() {
+        this._manager.disable();
+        this._manager = null;
+    }
 }
