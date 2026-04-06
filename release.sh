@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Arado v2 Release Script
+# Arado v3 Release Script
 # This script packages the extension for submission to extensions.gnome.org
 
 UUID="arado@federico.duppa"

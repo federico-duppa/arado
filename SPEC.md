@@ -1,10 +1,10 @@
-# Specification: Arado GNOME Extension v2
+# Specification: Arado GNOME Extension v3
 
 ## Objective
-Develop "Arado", a tiling window manager extension for GNOME 42.9 (Ubuntu 22.04 LTS context). The extension provides a simple, configurable grid-based tiling system (1, 2 or 4 slots) with keyboard-driven window movement.
+Develop "Arado", a tiling window manager extension for GNOME 46. The extension provides a simple, configurable grid-based tiling system (1, 2 or 4 slots) with keyboard-driven window movement.
 
 ## Target Environment
-- **GNOME Version:** 42.9
+- **GNOME Version:** 46
 - **Platform:** Linux (Wayland/X11)
 - **Frameworks:** GJS (Gnome JavaScript), St (Shell Toolkit), GTK4 (for Preferences)
 
@@ -53,7 +53,7 @@ Develop "Arado", a tiling window manager extension for GNOME 42.9 (Ubuntu 22.04 
 - Hook into the GNOME keybinding manager to register and override `SUPER + <Arrow Keys>`.
 
 ## Verification & Testing
-- Test on GNOME 42.9.
+- Test on GNOME 46.
 - Verify window resizing and positioning across both 2-slot and 4-slot modes.
 - Verify 2px gaps and margins are applied correctly.
 - Ensure the top bar is never obscured.

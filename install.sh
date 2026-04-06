@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Arado v2 GNOME Extension Installer
+# Arado v3 GNOME Extension Installer
 # This script installs the Arado extension to the local user directory.
 
 UUID="arado@federico.duppa"

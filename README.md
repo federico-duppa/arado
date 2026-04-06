@@ -1,4 +1,4 @@
-# Arado v2
+# Arado v3
 
 **A minimal, keyboard-driven tiling extension for GNOME.**
 
@@ -12,7 +12,7 @@ Arado simplifies your workspace by organizing windows into a 1, 2, or 4-slot gri
 - **Keyboard-First Design:** Move windows between slots and cycle through grid sizes using simple `SUPER` key combinations.
 - **Multi-Monitor Support:** Each monitor maintains its own independent grid, while sharing global configuration settings.
 - **Intelligent Gaps:** Clean 2px gaps and margins provide visual separation without wasting screen real estate.
-- **Built for GNOME 42.9:** Optimized for stability and performance on Ubuntu 22.04 LTS and similar environments.
+- **Built for GNOME 46:** Optimized for stability and performance on modern GNOME environments.
 
 ## Keyboard Shortcuts
 
@@ -47,6 +47,6 @@ After installation, you need to restart GNOME Shell and enable the extension:
 
 ## Requirements
 
-- **GNOME Shell:** 42.9 (Tested on Ubuntu 22.04 LTS)
+- **GNOME Shell:** 46
 - **Dependencies:** `glib-compile-schemas` (usually pre-installed with GNOME)
 
