@@ -14,7 +14,7 @@ echo "Installing Arado ${VERSION} extension ($UUID)..."
 mkdir -p "$INSTALL_PATH"
 
 # Copy extension files
-cp extension.js metadata.json prefs.js icon.svg "$INSTALL_PATH/"
+cp extension.js metadata.json prefs.js icon.svg icon.png "$INSTALL_PATH/"
 cp -r schemas "$INSTALL_PATH/"
 
 # Compile schemas
