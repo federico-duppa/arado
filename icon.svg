@@ -1,0 +1,17 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded Purple background -->
+  <rect width="128" height="128" rx="24" fill="#613583"/>
+  
+  <!-- The 4-slot grid representation -->
+  <!-- 1st slot: Highlighted -->
+  <rect x="16" y="16" width="44" height="44" rx="8" fill="white" fill-opacity="0.9"/>
+  
+  <!-- 2nd slot -->
+  <rect x="68" y="16" width="44" height="44" rx="8" fill="white" fill-opacity="0.3"/>
+  
+  <!-- 3rd slot -->
+  <rect x="16" y="68" width="44" height="44" rx="8" fill="white" fill-opacity="0.3"/>
+  
+  <!-- 4th slot -->
+  <rect x="68" y="68" width="44" height="44" rx="8" fill="white" fill-opacity="0.3"/>
+</svg>

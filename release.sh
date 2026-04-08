@@ -30,6 +30,7 @@ zip -r "${ZIP_NAME}" \
     extension.js \
     metadata.json \
     prefs.js \
+    icon.svg \
     schemas/ \
     -x "*.gschema.override" -x "schemas/gschemas.compiled"
 
