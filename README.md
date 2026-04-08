@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="icon.svg" width="128" height="128" alt="Arado Icon">
+</p>
+
 # Arado v3
 
 **A minimal, keyboard-driven tiling extension for GNOME.**
